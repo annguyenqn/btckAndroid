@@ -1,9 +1,13 @@
 package com.example.btckandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -37,7 +41,36 @@ public class AffectedCountries extends AppCompatActivity {
         setContentView(R.layout.activity_affected_countries);
          edtSearch = findViewById(R.id.edtSearch);
          listView = findViewById(R.id.listView);
+         getSupportActionBar().setTitle("Affected Countries");
+         getSupportActionBar().setDisplayShowHomeEnabled(true);
+         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         fetchData();
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+              myCustomAdapter.getFilter().filter(charSequence) ;
+              myCustomAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 
     private void fetchData() {

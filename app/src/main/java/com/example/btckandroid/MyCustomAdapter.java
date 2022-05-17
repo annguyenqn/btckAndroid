@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,17 +17,20 @@ import com.bumptech.glide.Glide;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public  class  MyCustomAdapter extends ArrayAdapter<CountryModel>{
     private Context context;
     private List<CountryModel> countryModelList;
+    private List<CountryModel> contryModelListFiltered;
 
     public MyCustomAdapter( Context context, List<CountryModel> countryModelList) {
         super(context, R.layout.list_custom_item,countryModelList);
         this.context = context;
         this.countryModelList = countryModelList;
+        this.contryModelListFiltered = countryModelList;
 
 
     }
@@ -38,11 +42,70 @@ public  class  MyCustomAdapter extends ArrayAdapter<CountryModel>{
         TextView tvCountryName = view.findViewById(R.id.tvCountryName);
         ImageView imageView = view.findViewById(R.id.imageFlag);
 
-        tvCountryName.setText(countryModelList.get(position).getCountry());
-        Glide.with(context).load(countryModelList.get(position).getFlag()).into(imageView);
+        tvCountryName.setText(contryModelListFiltered.get(position).getCountry());
+        Glide.with(context).load(contryModelListFiltered.get(position).getFlag()).into(imageView);
 
 return  view;
 
+    }
+
+    @Override
+    public int getCount() {
+        return contryModelListFiltered.size();
+    }
+
+    @Nullable
+    @Override
+    public CountryModel getItem(int position) {
+        return contryModelListFiltered.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @NonNull
+    @Override
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                FilterResults filterResults = new FilterResults();
+                if(constraint == null || constraint.length() == 0){
+                    filterResults.count = countryModelList.size();
+                    filterResults.values = countryModelList;
+
+                }else{
+                    List<CountryModel> resultsModel = new ArrayList<>();
+                    String searchStr = constraint.toString().toLowerCase();
+
+                    for(CountryModel itemsModel:countryModelList){
+                        if(itemsModel.getCountry().toLowerCase().contains(searchStr)){
+                            resultsModel.add(itemsModel);
+
+                        }
+                        filterResults.count = resultsModel.size();
+                        filterResults.values = resultsModel;
+                    }
+
+
+                }
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            contryModelListFiltered= (List<CountryModel>) results.values;
+                AffectedCountries.countryModelList = (List<CountryModel>) results.values;
+                notifyDataSetChanged();
+
+            }
+        };
+        return filter;
     }
 }
 
