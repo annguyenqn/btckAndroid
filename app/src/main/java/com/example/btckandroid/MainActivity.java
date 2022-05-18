@@ -22,6 +22,9 @@ import org.eazegraph.lib.models.PieModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
     TextView tvCases , tvRecovered, tvCritical, tvActive, tvTodayCases,tvTotalDeaths,tvTodayDeaths,tvAffectedCountries;
     //SimpleArcLoader simpleArcLoader;
@@ -31,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
+        TextView textViewDate = findViewById(R.id.text_view_date);
+        textViewDate.setText(currentDate);
 
         tvCases = findViewById(R.id.tvCases);
         tvRecovered = findViewById(R.id.tvRecovered);
