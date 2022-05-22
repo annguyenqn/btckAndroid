@@ -19,11 +19,15 @@
         android:background="@drawable/edittext_shadow"
         android:drawableLeft="@drawable/ic_baseline_search_24"/>
 // có viết menu thì margin top thằng lày nhá
+
     <ListView
-        android:layout_width="match_parent"
         android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/edtSearch"
-        android:layout_margin="10dp"
-        android:layout_height="fill_parent"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>
