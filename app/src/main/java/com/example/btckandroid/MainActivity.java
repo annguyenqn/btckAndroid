@@ -3,6 +3,7 @@ package com.example.btckandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -30,10 +31,21 @@ public class MainActivity extends AppCompatActivity {
     //SimpleArcLoader simpleArcLoader;
     ScrollView scrollView;
     PieChart pieChart;
+
+    Database database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Create Database
+        database = new Database(this, "LuuThongTin.sqlite", null, 1);
+
+        //Create Table
+        database.QueryData("CREATE TABLE IF NOT EXISTS ThongTin(Id INTEGER PRIMARY KEY AUTOINCREMENT, currentDay VARCHAR(200) , country VARCHAR(200), cases VARCHAR(200), recovered VARCHAR(200), critical VARCHAR(200), active VARCHAR(200), todayCases VARCHAR(200), totalDeaths VARCHAR(200), todayDeaths VARCHAR(200))");
+
+
 
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
