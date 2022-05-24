@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".DetailActivity">
+    tools:context=".chi_tiet">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:orientation="vertical">
     <TextView
-        android:id="@+id/text_view_date"
+        android:id="@+id/text_view_date1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date"
@@ -37,7 +44,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="0"
-            android:id="@+id/tvCountry"
+            android:id="@+id/tvCountry1"
             android:textAlignment="textEnd"
             android:textSize="18sp"
 
@@ -69,18 +76,19 @@
             android:text="Cases"
             android:textStyle="bold"
             android:textSize="18sp"/>
+
         <TextView
+            android:id="@+id/tvCases1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:id="@+id/tvCases"
-            android:textAlignment="textEnd"
-            android:textSize="18sp"
-
-            android:textColor="@color/color_one"
-            android:textStyle="bold"
+            android:layout_alignParentRight="true"
             android:fontFamily="sans-serif-light"
-            android:layout_alignParentRight="true"/>
+            android:text="0"
+
+            android:textAlignment="textEnd"
+            android:textColor="@color/color_one"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
     <View
@@ -105,18 +113,19 @@
             android:text="Today Cases"
             android:textStyle="bold"
             android:textSize="18sp"/>
+
         <TextView
+            android:id="@+id/tvTodayCases1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:id="@+id/tvTodayCases"
-            android:textAlignment="textEnd"
-            android:textSize="18sp"
-
-            android:textColor="@color/color_one"
-            android:textStyle="bold"
+            android:layout_alignParentRight="true"
             android:fontFamily="sans-serif-light"
-            android:layout_alignParentRight="true"/>
+            android:text="0"
+
+            android:textAlignment="textEnd"
+            android:textColor="@color/color_one"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
     <View
@@ -141,18 +150,19 @@
             android:text="Deaths"
             android:textStyle="bold"
             android:textSize="18sp"/>
+
         <TextView
+            android:id="@+id/tvDeaths1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:id="@+id/tvDeaths"
-            android:textAlignment="textEnd"
-            android:textSize="18sp"
-
-            android:textColor="@color/color_one"
-            android:textStyle="bold"
+            android:layout_alignParentRight="true"
             android:fontFamily="sans-serif-light"
-            android:layout_alignParentRight="true"/>
+            android:text="0"
+
+            android:textAlignment="textEnd"
+            android:textColor="@color/color_one"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
     <View
@@ -177,18 +187,19 @@
             android:text="Today Deaths"
             android:textStyle="bold"
             android:textSize="18sp"/>
+
         <TextView
+            android:id="@+id/tvTodayDeaths1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:id="@+id/tvTodayDeaths"
-            android:textAlignment="textEnd"
-            android:textSize="18sp"
-
-            android:textColor="@color/color_one"
-            android:textStyle="bold"
+            android:layout_alignParentRight="true"
             android:fontFamily="sans-serif-light"
-            android:layout_alignParentRight="true"/>
+            android:text="0"
+
+            android:textAlignment="textEnd"
+            android:textColor="@color/color_one"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
     <View
@@ -213,18 +224,19 @@
             android:text="Recovered"
             android:textStyle="bold"
             android:textSize="18sp"/>
+
         <TextView
+            android:id="@+id/tvRecovered1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:id="@+id/tvRecovered"
-            android:textAlignment="textEnd"
-            android:textSize="18sp"
-
-            android:textColor="@color/color_one"
-            android:textStyle="bold"
+            android:layout_alignParentRight="true"
             android:fontFamily="sans-serif-light"
-            android:layout_alignParentRight="true"/>
+            android:text="0"
+
+            android:textAlignment="textEnd"
+            android:textColor="@color/color_one"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
     <View
@@ -249,18 +261,19 @@
             android:text="Active"
             android:textStyle="bold"
             android:textSize="18sp"/>
+
         <TextView
+            android:id="@+id/tvActive1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:id="@+id/tvActive"
-            android:textAlignment="textEnd"
-            android:textSize="18sp"
-
-            android:textColor="@color/color_one"
-            android:textStyle="bold"
+            android:layout_alignParentRight="true"
             android:fontFamily="sans-serif-light"
-            android:layout_alignParentRight="true"/>
+            android:text="0"
+
+            android:textAlignment="textEnd"
+            android:textColor="@color/color_one"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
     <View
@@ -287,7 +300,7 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/tvCritical"
+            android:id="@+id/tvCritical1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -306,31 +319,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         />
-    //Đây là nút  add nè nha set sự kiện cái này ở dưới có dòng onclick nếu
-    nó lỗi thì m xóa nó r khai báo btn on click bth nha
-    (tạo class thì tạo cho trong com.ex.btckandroid á nha file 1 trong file java á)
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/color_one"
-        android:onClick="Add"
-        android:padding="5dp"
-        android:text="Add"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
-    <ListView
-        android:id="@+id/listView2"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp" />
-
 </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
